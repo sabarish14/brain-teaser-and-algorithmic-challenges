@@ -6,7 +6,7 @@ public class QuickSortMain
 		{
 			QuickSort q=new QuickSort();
 			int a[]={6,5,4,3,2,1};
-			q.sort(a);
+			q.sort(a,false);
 			
 			
 		}

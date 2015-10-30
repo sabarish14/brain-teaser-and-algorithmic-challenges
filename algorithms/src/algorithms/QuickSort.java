@@ -1,38 +1,57 @@
 package algorithms;
 
 public class QuickSort {
-	void sort(int a[])
+	void sort(int a[],Boolean reverse)
 	{
 		int l=0;
 		int r=a.length-1;
-		this.divide(a, l, r);
+		this.divide(a, l, r,reverse);
 		
 	}
-	void divide(int a[],int l,int r)
+	void divide(int a[],int l,int r,Boolean reverse)
 	{
 		if(l+1>=r)
 			 return;
 		 int pivot=a[l];
 		 int i=l+1,j=r;
-		 
-		 while(i<j)
+		 if (!reverse)
 		 {
-			 while ( (a[i]<pivot) && (i<j))
+			 while(i<j)
 			 {
-				 i++;
+				 while ( (a[i]<pivot) && (i<j))
+				 {
+					 i++;
+				 }
+				 while((a[j]>=pivot)&&(j>l))
+				 {
+					 j--;
+				 }
+				 if (i<j)
+					 this.swap(a, i, j);
+				 
 			 }
-			 while((a[j]>=pivot)&&(j>l))
+		 }
+		 else
+		 {
+			 while(i<j)
 			 {
-				 j--;
+				 while ( (a[i]>pivot) && (i<j))
+				 {
+					 i++;
+				 }
+				 while((a[j]<=pivot)&&(j>l))
+				 {
+					 j--;
+				 }
+				 if (i<j)
+					 this.swap(a, i, j);
+				 
 			 }
-			 if (i<j)
-				 this.swap(a, i, j);
-			 
 		 }
 		 this.swap(a, l, j);
-		 this.display(a);
-		 this.divide(a, l,j);
-		 this.divide(a, j+1, r);
+		 //this.display(a);
+		 this.divide(a, l,j,reverse);
+		 this.divide(a, j+1, r,reverse);
 		 
 		 
 		 

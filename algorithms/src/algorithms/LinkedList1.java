@@ -5,7 +5,7 @@ package algorithms;
  * @author sabarish
  *
  */
-public class LinkedList 
+public class LinkedList1 
 {
 	private Node head;
 	private Node tail;
@@ -14,7 +14,7 @@ public class LinkedList
 	 * Constructor
 	 * @param num- Array of integers
 	 */
-	LinkedList(int num[])
+	LinkedList1(int num[])
 	{
 		Node temp=null;
 		for (int i=0;i<num.length;i++)
@@ -34,7 +34,7 @@ public class LinkedList
 		}
 		size=this.len();
 	}
-	LinkedList(Node head)
+	LinkedList1(Node head)
 	{
 		this.head=head;
 	}

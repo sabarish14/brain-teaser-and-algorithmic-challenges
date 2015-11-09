@@ -2,7 +2,7 @@ package algorithms;
 
 public class LinkedListOps {
 	
-	void add(LinkedList l1, LinkedList l2)
+	void add(LinkedList1 l1, LinkedList1 l2)
 	{
 		if (l1.size< l2.size)
 		{
@@ -16,7 +16,7 @@ public class LinkedListOps {
 		}
 		int carry=0;
 		Node result=l1.add(l1.getHead(),l2.getHead(),carry);
-		LinkedList resultList=new LinkedList(result);
+		LinkedList1 resultList=new LinkedList1(result);
 		resultList.display();
 		
 		

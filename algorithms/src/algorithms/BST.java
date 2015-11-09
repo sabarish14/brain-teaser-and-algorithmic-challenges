@@ -1,4 +1,5 @@
 package algorithms;
+import java.util.ArrayList;
 import java.util.LinkedList;;
 public class BST {
 	TreeNode root;
@@ -31,7 +32,7 @@ public class BST {
 	/**
 	 * 
 	 */
-	public void findSibling()
+	/*public void findSibling()
 	{
 		LinkedList<LinkedList<TreeNode>> list=new LinkedList<LinkedList<TreeNode>>();
 		LinkedList<TreeNode> parent=null,children=null;
@@ -77,6 +78,37 @@ public class BST {
 		
 		
 	}
+	*/
+	public void findSibling()
+	{
+		ArrayList<ArrayList<TreeNode>> list = new ArrayList<ArrayList<TreeNode>>();
+		ArrayList<TreeNode> rootList=new ArrayList<TreeNode>();
+		rootList.add(root);
+		list.add(rootList);
+		int level=0;
+		while (list.get(level).size()>0)
+		{
+			ArrayList<TreeNode> children=new ArrayList<TreeNode>();
+			ArrayList<TreeNode> levelList=list.get(level);
+			for (int i=0;i<levelList.size();i++)
+			{
+				TreeNode parent=levelList.get(i);
+				if (i>0)
+				{
+					levelList.get(i-1).sibling=parent;
+				}
+				if (parent.left!=null)
+					children.add(parent.left);
+				if (parent.right!=null)
+					children.add(parent.right);
+			}
+			
+			level++;
+			list.add(children);
+		}
+	}
+
+
 	/**
 	 * 
 	 * @param x
